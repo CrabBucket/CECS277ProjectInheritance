@@ -12,7 +12,7 @@ public class Sundae extends Icecream {
 	}
 	
 	/**
-	 *
+	 *{@inheritDoc}
 	 */
 	@Override
 	public float getCost() {
@@ -20,7 +20,7 @@ public class Sundae extends Icecream {
 	}
 	
 	/**
-	 *
+	 *{@inheritDoc}
 	 */
 	@Override
 	public String toString() {

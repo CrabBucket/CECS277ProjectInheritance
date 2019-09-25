@@ -7,7 +7,12 @@ public class Cookie extends DessertItem {
 		this.numDozen = 1;
 		this.pricePer = 1f;
 	}
-	
+	/**
+	 * 
+	 *{@inheritDoc}
+	 *@param number
+	 *@param pricePer
+	 */
 	public Cookie(String name, int calories, int number, float pricePer) {
 		super(name, calories);
 		this.numDozen = number;
