@@ -2,6 +2,12 @@ public class Cookie extends DessertItem {
 	private int number;
 	private float pricePer;
 	
+	public Cookie(){
+		super("Unknown cookie", 0);
+		this.number = 1;
+		this.pricePer = 1f;
+	}
+	
 	public Cookie(String name, int calories, int number, float pricePer) {
 		super(name, calories);
 		this.number = number;
