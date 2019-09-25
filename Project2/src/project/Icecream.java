@@ -1,6 +1,11 @@
 public class Icecream extends DessertItem {
 	private float cost;
 	
+	public Icecream(){
+		super("Unknown ice cream", 0);
+		this.cost = 1f;
+	}
+	
 	public Icecream(String name, int calories, float cost) {
 		super(name, calories);
 		this.cost = cost;
