@@ -1,33 +1,61 @@
-package project;
-
 public class Cookie extends DessertItem {
-	private int dozens;
+	private int number;
 	private float pricePer;
-	public Cookie(String name, int calories,int dozens, float pricePer) {
+	
+	public Cookie(String name, int calories, int number, float pricePer) {
 		super(name, calories);
-		this.dozens = dozens;
+		this.number = number;
 		this.pricePer = pricePer;
-		// TODO Auto-generated constructor stub
 	}
+		
+	/**
+	 * Returns information about the object in the form of a String.
+	 * String is formatted to fit a "receipt" that is 30 characters wide.
+	 */
+	@Override
 	public String toString() {
-		return "";
+		String toReturn = "";
+		toReturn += String.format("%d @ %.2f /dz.%n", this.number, this.pricePer);
+		String itemName = this.name;
+		if(itemName.length() > 24) {
+			String newName = "";
+			int linesRequired = itemName.length()/24;
+			for(int lines = 0; lines < linesRequired; lines++) {
+				newName += itemName.substring(24 * lines, 24 * (lines + 1)) + "\n";
+			}
+			newName += itemName.substring(24 * linesRequired);
+			itemName = newName;
+			int extraChars = 30 - itemName.length() % 25;
+			toReturn += String.format("%-25s %" + extraChars + ".2f", itemName, this.getCost());
+		}
+		else {
+			toReturn += String.format("%-25s %5.2f", itemName, this.getCost());
+		}
+		return toReturn;
 	}
+	
 	@Override
 	public float getCost() {
-		// TODO Auto-generated method stub
-		return pricePer*dozens*12;
+		return pricePer * number * 12;
 	}
 
 	@Override
 	public int getCalories() {
-		// TODO Auto-generated method stub
-		return calories*12*dozens;
+		return calories * 12 * number;
 	}
 
 	@Override
 	public DessertItem max(DessertItem item) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		Cookie cookie = new Cookie("123451234512345123451234", 10, 1, 2.1f);
+		Cookie cookie2 = new Cookie("Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie ", 10, 1, 2.1f);
+		System.out.println(cookie);
+		System.out.println(cookie2);
+		System.out.println("123456789 123456789 123456789 ");
+		System.out.println("12345\n".length());
 	}
 
 }
