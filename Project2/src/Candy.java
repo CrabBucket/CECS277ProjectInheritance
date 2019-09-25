@@ -49,11 +49,6 @@ public class Candy extends DessertItem {
 		return Math.round(calories*weight);
 	}
 
-	@Override
-	public DessertItem max(DessertItem item) {
-		return null;
-	}
-
 	public static void main(String[] args) {
 		Candy candy = new Candy("something taffy", 210, 1.5f, 2.00f);
 		System.out.println(candy);
