@@ -1,6 +1,12 @@
 public class Candy extends DessertItem {
 	private float weight;
 	private float priceDensity;
+	
+	public Candy(){
+		super("Unknown candy", 0);
+		this.weight = 1f;
+		this.priceDensity = 1f;
+	}
 	public Candy(String name, int calories, float weight, float priceDensity) {
 		super(name,calories);
 		this.weight = weight;
