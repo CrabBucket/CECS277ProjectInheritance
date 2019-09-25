@@ -51,7 +51,7 @@ public class Checkout {
 	public int totalCost() {
 		int total = 0;
 		for(DessertItem item : this.itemList) {
-			total += item.getCost();
+			total += 100 * item.getCost();
 		}
 		return total;
 	}
