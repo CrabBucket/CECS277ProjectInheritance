@@ -1,5 +1,3 @@
-import project.DessertItem;
-
 /**
  * Cookie
  * 
