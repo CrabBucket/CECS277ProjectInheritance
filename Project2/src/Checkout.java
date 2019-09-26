@@ -14,7 +14,7 @@ public class Checkout {
 	
 	/**
 	 * Creates a Checkout instance with an empty list of DessertItem's, and tax rate set to the argument
-	 * @param taxRate
+	 * @param taxRate The taxrate of this checkout.
 	 */
 	public Checkout(float taxRate) {
 		this.itemList = new ArrayList<DessertItem>();

@@ -23,7 +23,8 @@ public class PolymorphicTester {
 		listC.add(new Cookie("6", 32, 10, 510));
 		listCndy.add(new Candy("7", 32, 10, 50000));
 		listCndy.add(new Candy("Most Expensive", 32, 10, 50000));
-		
+		// Uses compareTo with every combination in master  This should be sufficient to show polymorphism works on every combo.
+		//compareTo uses  getCost on all the objects in every combinations
 		for(ArrayList<DessertItem> list:master) {
 			for(DessertItem d: list) {
 				System.out.println(d.getName() + " compared to:");
@@ -37,6 +38,10 @@ public class PolymorphicTester {
 			
 			}
 		}
+		
+		
+		
+		
 		
 
 	}
