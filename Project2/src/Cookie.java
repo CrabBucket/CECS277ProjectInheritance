@@ -1,10 +1,21 @@
+package project;
+
+/**
+ * Cookie
+ * 
+ * A child class of DessertItem with an extra parameter for number and price per dozen.
+ * 
+ * @author Thomas McSwain
+ * @version 1.0
+ * @since 2019-09-24
+ */
 public class Cookie extends DessertItem {
-	private int numDozen;
+	private int number;
 	private float pricePer;
 	
 	public Cookie(){
 		super("Unknown cookie", 0);
-		this.numDozen = 1;
+		this.number = 1;
 		this.pricePer = 1f;
 	}
 	/**
@@ -15,7 +26,7 @@ public class Cookie extends DessertItem {
 	 */
 	public Cookie(String name, int calories, int number, float pricePer) {
 		super(name, calories);
-		this.numDozen = number;
+		this.number = number;
 		this.pricePer = pricePer;
 	}
 		
@@ -26,7 +37,7 @@ public class Cookie extends DessertItem {
 	@Override
 	public String toString() {
 		String toReturn = "";
-		toReturn += String.format("%d @ %.2f /dz.%n", this.numDozen, this.pricePer);
+		toReturn += String.format("%d @ %.2f /dz.%n", this.number, this.pricePer);
 		String itemName = this.name;
 		if(itemName.length() > 24) {
 			String newName = "";
@@ -47,12 +58,12 @@ public class Cookie extends DessertItem {
 	
 	@Override
 	public float getCost() {
-		return pricePer * numDozen * 12;
+		return pricePer * number / 12;
 	}
 
 	@Override
 	public int getCalories() {
-		return calories * 12 * numDozen;
+		return calories * number / 12;
 	}
 
 	

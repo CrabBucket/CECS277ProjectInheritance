@@ -1,3 +1,14 @@
+package project;
+
+/**
+ * Candy
+ * 
+ * A child class of DessertItem with extra parameters for weight in pounds and product price per pound.
+ * 
+ * @author Thomas McSwain
+ * @version 1.0
+ * @since 2019-09-24
+ */
 public class Candy extends DessertItem {
 	private float weight;
 	private float priceDensity;

@@ -1,5 +1,18 @@
+package project;
+
 import java.util.ArrayList;
 
+/**
+ * Checkout
+ * 
+ * A simulation of a receipt for purchasing a set of DessertItem's.
+ * Contains an arraylist of DessertItems, and a tax rate.
+ * Also has methods for computing the total cost and tax of the entered DessertItem's.
+ * 
+ * @author Alexander Dung
+ * @version 1.0
+ * @since 2019-09-25
+ */
 public class Checkout {
 	private ArrayList<DessertItem> itemList;
 	private float taxRate;
@@ -14,7 +27,7 @@ public class Checkout {
 	
 	/**
 	 * Creates a Checkout instance with an empty list of DessertItem's, and tax rate set to the argument
-	 * @param taxRate The taxrate of this checkout.
+	 * @param taxRate The tax rate of this checkout.
 	 */
 	public Checkout(float taxRate) {
 		this.itemList = new ArrayList<DessertItem>();
@@ -86,8 +99,9 @@ public class Checkout {
 	 * the name of the Dessert store, the items purchased, the tax and the total cost
 	 */
 	public String toString() {
-		int receiptWidth = 30;					//max width of formatted String to return
-		String toPrint = "  Simple Stuff Dessert Shoppe  \n  --------------------------  \n";
+		String toPrint = "Number of items: " + this.numberOfItems() + "\nTotal Cost: " + this.totalCost()/100f 
+				+ "\nTotal Tax: " + this.totalTax()/100f + "\nCost + Tax: " + (this.totalCost() + this.totalTax())/100f 
+				+ "\n\n  Simple Stuff Dessert Shoppe  \n  ---------------------------  \n";
 		for(int listIndex = 0; listIndex < itemList.size(); listIndex++) {
 			toPrint += "\n" + itemList.get(listIndex);
 		}	

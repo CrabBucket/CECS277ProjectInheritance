@@ -1,3 +1,14 @@
+package project;
+
+/**
+ * Ice Cream
+ * 
+ * A child class of DessertItem with an extra parameter for cost.
+ * 
+ * @author Thomas McSwain
+ * @version 1.0
+ * @since 2019-09-24
+ */
 public class Icecream extends DessertItem {
 	private float cost;
 	

@@ -1,3 +1,14 @@
+package project;
+
+/**
+ * Sundae
+ * 
+ * A child class of Icecream with an extra parameter for topping cost.
+ * 
+ * @author Thomas McSwain
+ * @version 1.0
+ * @since 2019-09-24
+ */
 public class Sundae extends Icecream {
 	private float toppingCost;
 	

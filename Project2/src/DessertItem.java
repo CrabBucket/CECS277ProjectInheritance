@@ -1,3 +1,5 @@
+package project;
+
 /**
  * Dessert Item
  * 
@@ -24,7 +26,7 @@ public abstract class DessertItem implements Comparable<DessertItem> {
 	 * @param  name Name of the item
 	 * @param calories Amount of calories per item or weight or dozen depending on the child.
 	 */
-	public DessertItem(String name,int calories) {
+	public DessertItem(String name, int calories) {
 		this.name = name;
 		this.calories = calories;
 	}
@@ -49,9 +51,10 @@ public abstract class DessertItem implements Comparable<DessertItem> {
 	 * @return  The object that costs more.
 	 */
 	public static DessertItem max(DessertItem item1,DessertItem item2) {
-		if(item1.compareTo(item2)>=1) {
+		if(item1.compareTo(item2) >= 1) {
 			return item1;
-		}else {
+		}
+		else {
 			return item2;
 		}
 	}
