@@ -1,5 +1,3 @@
-package project;
-
 /**
  * Dessert Item
  * 

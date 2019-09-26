@@ -1,4 +1,4 @@
-package project;
+import project.DessertItem;
 
 /**
  * Cookie
@@ -21,8 +21,8 @@ public class Cookie extends DessertItem {
 	/**
 	 * 
 	 *{@inheritDoc}
-	 *@param number
-	 *@param pricePer
+	 *@param number number of cookies to buy
+	 *@param pricePer price per dozen of cookies
 	 */
 	public Cookie(String name, int calories, int number, float pricePer) {
 		super(name, calories);
