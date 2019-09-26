@@ -36,9 +36,6 @@ public class Sundae extends Icecream {
 		return super.toString();
 	}
 	
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		Sundae thing = new Sundae("sundae thing", 210, 15.001f, 1.00f);
 		System.out.println(thing + "\n" + thing.getCost());
