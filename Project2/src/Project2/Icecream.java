@@ -1,33 +1,26 @@
+package Project2;
 /**
- * Cookie
+ * Ice Cream
  * 
- * A child class of DessertItem with an extra parameter for number and price per dozen.
+ * A child class of DessertItem with an extra parameter for cost.
  * 
  * @author Thomas McSwain
  * @version 1.0
  * @since 2019-09-24
  */
-public class Cookie extends DessertItem {
-	private int number;
-	private float pricePer;
+public class Icecream extends DessertItem {
+	private float cost;
 	
-	public Cookie(){
-		super("Unknown cookie", 0);
-		this.number = 1;
-		this.pricePer = 1f;
+	public Icecream(){
+		super("Unknown ice cream", 0);
+		this.cost = 1f;
 	}
-	/**
-	 * 
-	 *{@inheritDoc}
-	 *@param number number of cookies to buy
-	 *@param pricePer price per dozen of cookies
-	 */
-	public Cookie(String name, int calories, int number, float pricePer) {
+	
+	public Icecream(String name, int calories, float cost) {
 		super(name, calories);
-		this.number = number;
-		this.pricePer = pricePer;
+		this.cost = cost;
 	}
-		
+
 	/**
 	 * Returns information about the object in the form of a String.
 	 * String is formatted to fit a "receipt" that is 30 characters wide.
@@ -35,7 +28,6 @@ public class Cookie extends DessertItem {
 	@Override
 	public String toString() {
 		String toReturn = "";
-		toReturn += String.format("%d @ %.2f /dz.%n", this.number, this.pricePer);
 		String itemName = this.name;
 		if(itemName.length() > 24) {
 			String newName = "";
@@ -53,25 +45,20 @@ public class Cookie extends DessertItem {
 		}
 		return toReturn;
 	}
-	
+
 	@Override
 	public float getCost() {
-		return pricePer * number / 12;
+		return cost;
 	}
 
 	@Override
 	public int getCalories() {
-		return calories * number / 12;
+		return calories;
 	}
-
 	
 	public static void main(String[] args) {
-		Cookie cookie = new Cookie("123451234512345123451234", 10, 1, 2.1f);
-		Cookie cookie2 = new Cookie("Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie Cookie ", 10, 1, 2.1f);
-		System.out.println(cookie);
-		System.out.println(cookie2);
-		System.out.println("123456789 123456789 123456789 ");
-		System.out.println("12345\n".length());
+		Icecream thing = new Icecream("12345 12345 12345 12345 12345 ", 210, 10.5f);
+		System.out.println(thing);
 	}
 
 }

@@ -1,25 +1,28 @@
+package Project2;
 /**
- * Ice Cream
+ * Candy
  * 
- * A child class of DessertItem with an extra parameter for cost.
+ * A child class of DessertItem with extra parameters for weight in pounds and product price per pound.
  * 
  * @author Thomas McSwain
  * @version 1.0
  * @since 2019-09-24
  */
-public class Icecream extends DessertItem {
-	private float cost;
+public class Candy extends DessertItem {
+	private float weight;
+	private float priceDensity;
 	
-	public Icecream(){
-		super("Unknown ice cream", 0);
-		this.cost = 1f;
+	public Candy(){
+		super("Unknown candy", 0);
+		this.weight = 1f;
+		this.priceDensity = 1f;
+	}
+	public Candy(String name, int calories, float weight, float priceDensity) {
+		super(name,calories);
+		this.weight = weight;
+		this.priceDensity = priceDensity;
 	}
 	
-	public Icecream(String name, int calories, float cost) {
-		super(name, calories);
-		this.cost = cost;
-	}
-
 	/**
 	 * Returns information about the object in the form of a String.
 	 * String is formatted to fit a "receipt" that is 30 characters wide.
@@ -27,6 +30,7 @@ public class Icecream extends DessertItem {
 	@Override
 	public String toString() {
 		String toReturn = "";
+		toReturn += String.format("%.2f lbs. @ %.2f /lb.%n", this.weight, this.priceDensity);
 		String itemName = this.name;
 		if(itemName.length() > 24) {
 			String newName = "";
@@ -44,20 +48,19 @@ public class Icecream extends DessertItem {
 		}
 		return toReturn;
 	}
-
+	
 	@Override
 	public float getCost() {
-		return cost;
+		return weight * priceDensity;
 	}
 
 	@Override
 	public int getCalories() {
-		return calories;
-	}
-	
-	public static void main(String[] args) {
-		Icecream thing = new Icecream("12345 12345 12345 12345 12345 ", 210, 10.5f);
-		System.out.println(thing);
+		return Math.round(calories*weight);
 	}
 
+	public static void main(String[] args) {
+		Candy candy = new Candy("something taffy", 210, 1.5f, 2.00f);
+		System.out.println(candy);
+	}
 }
