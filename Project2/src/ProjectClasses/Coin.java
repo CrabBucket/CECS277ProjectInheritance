@@ -76,10 +76,16 @@ public class Coin {
 		return this.value * this.amount;
 	}
 	
+	/**
+	 * Increments this Coin's amount by 1.
+	 */
 	public void incrementAmount() {
 		this.amount++;
 	}
 	
+	/**
+	 * Decrements this Coin's amount by 1.
+	 */
 	public void decrementAmount() {
 		this.amount--;
 	}
