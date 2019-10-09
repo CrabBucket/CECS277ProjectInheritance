@@ -48,12 +48,24 @@ public class Coin {
 		return this.name;
 	}
 	
+	public void setName(String newName) {
+		this.name = newName;
+	}
+	
 	public double getValue() {
 		return this.value;
 	}
 	
+	public void setValue(double newValue) {
+		this.value = newValue;
+	}
+	
 	public int getAmount() {
 		return this.amount;
+	}
+	
+	public void setAmount(int newAmount) {
+		this.amount = newAmount;
 	}
 	
 	/**
@@ -62,6 +74,14 @@ public class Coin {
 	 */
 	public double calculateTotalValue() {
 		return this.value * this.amount;
+	}
+	
+	public void incrementAmount() {
+		this.amount++;
+	}
+	
+	public void decrementAmount() {
+		this.amount--;
 	}
 	
 	@Override
