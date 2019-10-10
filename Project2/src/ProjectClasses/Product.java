@@ -76,10 +76,12 @@ public class Product {
 	}
 	
 	/**
-	 * Decrements amount of units by 1.
+	 * Decrements amount of units by 1. Returns a single Prodcut of the same name and price.
+	 * @return A single product with the same name and price.
 	 */
-	public void decrementAmount() {
+	public Product decrementAmount() {
 		this.amount--;
+		return new Product(this.name,this.price);
 	}
 	
 	@Override

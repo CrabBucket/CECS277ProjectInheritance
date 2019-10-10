@@ -7,102 +7,18 @@ package ProjectClasses;
  * @author Alexander Dung
  *
  */
-public class Coin {
-	private double value;
-	private String name;
-	private int amount;
+public interface Coin {
+
 	
 	/**
-	 * Default constructor, simple placeholder/null coin.
+	 * Compares equality of this coin and another coin.
+	 * @param c The coin being compare to
+	 * @return True if the two coins are equal else false.
 	 */
-	public Coin() {
-		this.name = "Unknown Coin";
-		this.value = 0;
-		this.amount = 0;
-	}
+	double getValue();
+	String getName();
+	String toString();
 	
-	/**
-	 * Constructor for a Coin with no given amount. Assumes amount is one.
-	 * @param name to give the coin
-	 * @param value of the coin
-	 */
-	public Coin(String name, double value) {
-		this.name = name;
-		this.value = value;
-		this.amount = 1;
-	}
-	
-	/**
-	 * Constructor for a Coin with specified name, value, and amount.
-	 * @param name of the coin
-	 * @param value of the coin
-	 * @param amount of coins in the stack
-	 */
-	public Coin(String name, double value, int amount) {
-		this.name = name;
-		this.value = value;
-		this.amount = amount;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
-	
-	public void setName(String newName) {
-		this.name = newName;
-	}
-	
-	public double getValue() {
-		return this.value;
-	}
-	
-	public void setValue(double newValue) {
-		this.value = newValue;
-	}
-	
-	public int getAmount() {
-		return this.amount;
-	}
-	
-	public void setAmount(int newAmount) {
-		this.amount = newAmount;
-	}
-	
-	/**
-	 * Calculates the total value of all the Coins in this stack.
-	 * @return total value calculated by the product of value and amount.
-	 */
-	public double calculateTotalValue() {
-		return this.value * this.amount;
-	}
-	
-	/**
-	 * Increments this Coin's amount by 1.
-	 */
-	public void incrementAmount() {
-		this.amount++;
-	}
-	
-	/**
-	 * Decrements this Coin's amount by 1.
-	 */
-	public void decrementAmount() {
-		this.amount--;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format("Stack of %s, containing %d coins valued at $%.2f each.", this.name, this.amount, this.value);
-	}
-	
-	public static void main(String[] args) {
-		Coin coiny = new Coin("coiny", 1f, 100);
-		Coin coino = new Coin("coino", 10f);
-		Coin un = new Coin();
-		System.out.println(coiny);
-		System.out.println(coino);
-		System.out.println(un);
-	}
 
 }
 
