@@ -88,14 +88,4 @@ public class Product {
 	public String toString() {
 		return String.format("%s @ $%.2f/un.%n%d un.%n", this.name, this.price, this.amount);
 	}
-	
-	public static void main(String args[]) {
-		Product proddy = new Product("proddy", 10f, 10);
-		Product proddo = new Product("proddo", 5.22f);
-		Product un = new Product();
-		System.out.println(proddy);
-		System.out.println(proddo);
-		System.out.println(un);
-	}
-
 }

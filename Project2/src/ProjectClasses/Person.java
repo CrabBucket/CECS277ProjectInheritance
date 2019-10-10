@@ -67,6 +67,7 @@ public class Person {
 	/**
 	 * Searches through purse for Coin whose name matches the argument String, then decrements that Coin's amount.
 	 * @param name name of the Coin to decrement
+	 * @return boolean whether the argument Coin was removed from the purse
 	 */
 	public boolean removeCoin(String name) {
 		for(Coin c:purse) {
@@ -98,22 +99,4 @@ public class Person {
 		}
 		return toReturn;
 	}
-	
-	public static void main(String[] args) {
-		ArrayList<Coin> coins = new ArrayList<Coin>();
-		CoinFactory cf = new CoinFactory();
-		coins.add(cf.getCoin("Quarter"));
-		coins.add(cf.getCoin("Dollar"));
-		coins.add(cf.getCoin("Nickel"));
-		ArrayList<Product> prods = new ArrayList<Product>();
-		prods.add(new Product("chips", 0.75f, 10));
-		prods.add(new Product("chocolate", 1.0f));
-		prods.add(new Product());
-		Person persony = new Person(coins, prods);
-		persony.takeProduct(new Product("chips", 0.75f, 2));
-		persony.removeCoin("quarter");
-		persony.addCoin("dollar");
-		System.out.println(persony);
-	}
-
 }

@@ -24,8 +24,8 @@ public class VendingMachine {
 	}
 	/**
 	 * Constructor that takes in ArrayLists that become the products and coins.
-	 * @param products
-	 * @param coins
+	 * @param products Products to add to the machine
+	 * @param coins Coins to add to the machine
 	 */
 	public VendingMachine(ArrayList<Product> products, ArrayList<Coin> coins) {
 		this.products = products;
@@ -34,14 +34,14 @@ public class VendingMachine {
 		balance = new ArrayList<Coin>();
 	}
 	/**
-	 * Emptys the buffer of coins
+	 * Empties the buffer of coins
 	 */
 	public void emptyBuffer() {
 		buffer.clear();
 	}
 	/**
 	 * Takes a coin object and adds its amount to the amount of the current coin
-	 * @param coin
+	 * @param coin to add to the buffer
 	 */
 	public void insertCoin(String coin) {
 		buffer.add(cf.getCoin(coin));
@@ -55,7 +55,7 @@ public class VendingMachine {
 	}
 	/**
 	 * Returns the total monetary amount of the Coins in the balance
-	 * @return
+	 * @return sum the current balance
 	 */
 	public double balance() {
 		double sum = 0;
@@ -66,7 +66,7 @@ public class VendingMachine {
 	}
 	/**
 	 * Returns the total monetary amount of the Coins in the buffer
-	 * @return
+	 * @return sum the total value of coins inserted in the machine
 	 */
 	public double totalValue() {
 		double sum = 0;
@@ -142,25 +142,6 @@ public class VendingMachine {
 		}else {
 			temp = temp + "There have been no coins inserted in the vending machine\n\n";
 		}
-		return temp;
-		
+		return temp;	
 	}
-	public static void main(String[] args) {
-		VendingMachine vm = new VendingMachine();
-		CoinFactory cf = new CoinFactory();
-		Person p1 = new Person();
-		vm.addProduct(new Product("chips", 0.75f, 10));
-		vm.addProduct(new Product("chocolate",1.2f));
-		vm.addProduct(new Product("Soda",1,100));
-		vm.insertCoin("Quarter");
-		vm.insertCoin("Quarter");
-		
-		vm.insertCoin("Dime");
-		System.out.println(vm.toString());
-		System.out.println(vm.purchaseProduct(0, p1));
-		System.out.println(p1);
-		
-	}
-	
-	
 }
