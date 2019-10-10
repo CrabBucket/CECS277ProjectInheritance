@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="ProjectClasses.Coin" project="Projects" 
+    file="/Projects/src/ProjectClasses/Coin.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="146" width="188" x="482" y="515"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="ProjectClasses.Dime" project="Projects" 
+    file="/Projects/src/ProjectClasses/Dime.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="395" y="782"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ProjectClasses.Dollar" project="Projects" 
+    file="/Projects/src/ProjectClasses/Dollar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="599" y="787"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ProjectClasses.Nickel" project="Projects" 
+    file="/Projects/src/ProjectClasses/Nickel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="794" y="792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ProjectClasses.Product" project="Projects" 
+    file="/Projects/src/ProjectClasses/Product.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1011" y="435"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ProjectClasses.VendingMachine" project="Projects" 
+    file="/Projects/src/ProjectClasses/VendingMachine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="611" y="201"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ProjectClasses.CoinFactory" project="Projects" 
+    file="/Projects/src/ProjectClasses/CoinFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="238" y="133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ProjectClasses.Person" project="Projects" 
+    file="/Projects/src/ProjectClasses/Person.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="219" y="427"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="9">    
+    <bendpoint x="662" y="440"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="10" name="balance">        
+        <position height="18" width="46" x="626" y="496"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="2147483647">        
+        <position height="16" width="21" x="644" y="481"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="12">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="13" name="held"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="15">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="16">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="17" name="purse"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <bendpoint x="556" y="426"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="20" name="buffer">        
+        <position height="18" width="38" x="518" y="495"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="22">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="23" name="products">        
+        <position height="18" width="51" x="879" y="342"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="26" name="cf"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="28">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="29">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="30" name="cf"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="32">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

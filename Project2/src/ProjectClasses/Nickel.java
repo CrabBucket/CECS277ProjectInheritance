@@ -1,5 +1,9 @@
 package ProjectClasses;
-
+/**
+ * 	Coin that represents a nickel.
+ * @author Thomas McSwain
+ *
+ */
 public class Nickel implements Coin {
 	private  double value;
 	private  String name;

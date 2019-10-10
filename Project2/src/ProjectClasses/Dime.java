@@ -1,5 +1,9 @@
 package ProjectClasses;
-
+/**
+ * 	Coin that represents a nickel.
+ * @author Thomas McSwain
+ *
+ */
 public class Dime implements Coin {
 
 	private  double value;

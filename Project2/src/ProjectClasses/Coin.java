@@ -1,22 +1,27 @@
 package ProjectClasses;
 
 /**
- * Represents a stack of a single type of coin.
- * Stores the value of the coin, the name of the coin, and the number of coins in the stack.
- * Contains a method that returns the total value of the stack.
- * @author Alexander Dung
+ * Coin interface that goes between all the coins
+ * Requires you to have a getValue() getName() and toString() to be a coin
  *
  */
 public interface Coin {
 
 	
 	/**
-	 * Compares equality of this coin and another coin.
-	 * @param c The coin being compare to
-	 * @return True if the two coins are equal else false.
+	 * returns the monetary value of the coin
+	 * @return returns the value as a double
 	 */
 	double getValue();
+	/**
+	 * returns the name of the coin
+	 * @return Name of coin
+	 */
 	String getName();
+	/**
+	 * String representation of coin
+	 * @return A coin
+	 */
 	String toString();
 	
 
