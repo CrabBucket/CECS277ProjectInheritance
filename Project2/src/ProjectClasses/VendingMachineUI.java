@@ -51,7 +51,6 @@ public class VendingMachineUI {
 				break;
 			}
 		}
-		System.out.println(per);
 		
 		
 		// Main loops that prompts user for input
