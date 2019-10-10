@@ -113,13 +113,8 @@ public class VendingMachineUI {
 				System.out.println("Input the name of the product you wish to purchase.");
 				String item = buffer.readLine();
 				try {
-					ArrayList<Coin> temp = vm.purchaseProduct(vm.indexOf(item), per);
-					if(temp.size()>0) {
-						System.out.println("Not enough coins inserted, returning money.");
-						for(Coin c:temp) per.addCoin(c.getName());
-					}else {
-						System.out.println("Purchase complete");
-					}
+					if(vm.purchaseProduct(vm.indexOf(item), per)) System.out.println("Purchase successful.");
+					else System.out.println("Purchase failed due to insufficient funds.");
 				}catch (ArrayIndexOutOfBoundsException e){
 					System.out.println("Invalid Product name");
 				}

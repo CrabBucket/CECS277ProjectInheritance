@@ -95,13 +95,13 @@ public class VendingMachine {
 	}
 	/**
 	 * Purchase product checks if the person has entered enough coins in to the machine to purchase the selected product.
-	 * If they have it adds all the coins in the buffer into the balancer then empties the buffer. It then returns an empty ArrayList of coins
-	 * If they don't have enough coins in the machine it clears the buffer and returns an ArrayList with all the coins they put it in.
+	 * If they have it adds all the coins in the buffer into the balance then empties the buffer. It then returns true.
+	 * If they don't have enough coins in the machine it returns false and does nothing.
 	 * @param index Index of the product intended for purchase
 	 * @param person Person purchasing the product
-	 * @return Either an empty List of coins the person succeeded in their purchase or a List that contains the coins inserted so far.
+	 * @return Boolean reflecting whether the purchase was successful.
 	 */
-	public ArrayList<Coin> purchaseProduct(int index,Person person) {
+	public boolean purchaseProduct(int index,Person person) {
 		double removemoney = products.get(index).getPrice();
 		if(totalValue()>=removemoney) {
 			if(products.get(index).getAmount()==1) {
@@ -112,12 +112,11 @@ public class VendingMachine {
 			}
 			for(Coin c:buffer) { balance.add(cf.getCoin(c.getName()));}
 			emptyBuffer();
-			return new ArrayList<Coin>();
+			return true;
 		}
-		ArrayList<Coin> temp = buffer;
-		emptyBuffer();
-		return temp;
+		return false;
 	}
+	
 	public String showProducts() {
 		String temp = "";
 		if(products.size()>0) {
