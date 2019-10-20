@@ -34,7 +34,7 @@ public class LedgerOrganizer {
 		}
 	}
 	public void close() {
-		//HashMaps foreach function takes in a lambda expression and does said expression all key,value pairs.
+		//HashMaps for each function takes in a lambda expression and does said expression all key,value pairs.
 		//So my lambda takes the (service,writer) pair then just does writer.close() to close all the writers.
 		map.forEach((service,writer) -> writer.close());
 	}
