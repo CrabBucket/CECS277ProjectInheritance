@@ -2,6 +2,9 @@ package ProjectFileIO;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
 
 public class LedgerWriter{
 	private PrintWriter write;
@@ -27,17 +30,25 @@ public class LedgerWriter{
 	public void addNewSale(String sale) {
 		//One liner to find the amount of occurrences of ';' in our sale
 		int count = sale.length() - sale.replace(";", "").length();
-		//verify that the entered data represent an actual sale - only service type and price are important.
+		//Verify that the entered data represent an actual sale - no real need to check payer name.
 		if(count != 3) {
 			throw new IllegalArgumentException(); 
+		}
 		//Split the sale into the correct amount of strings, we know we won't get an error with the array index because we insure we have 3 semicolons and thus 4 strings in the first if.
-		}else if(sale.split(";")[1]=="") { //if the service is an empty string, throw error because a file with a blank name cannot be created.
+		//If the service is an empty string, throw error because a file with a blank name cannot be created.
+		else if(sale.split(";")[1]=="") { 
 			throw new IllegalArgumentException();
-		}else if(!isValidPrice(sale.split(";")[2])){ //if the price is not a valid price, throw error.
+		}
+		//If the price is not a valid price, throw error.
+		else if(!isValidPrice(sale.split(";")[2])){ 
 			throw new IllegalArgumentException();
-		}else if(!isValidDate(sale.split(";")[3])){ //if the date does not follow mm/dd/yyyy format, throw error
+		}
+		//If the date does not follow mm/dd/yyyy format, throw error.
+		else if(!isValidDate(sale.split(";")[3])){ 
 			throw new IllegalArgumentException();
-		}else {
+		}
+		//All tests have been passed, therefore sale is valid and is written into ledger.
+		else{
 			write.println(sale);
 		}
 	}
@@ -48,24 +59,39 @@ public class LedgerWriter{
 
 	private boolean isValidPrice(String possiblePrice) {
 		double testDouble = -1;
-		try {
-			testDouble = Double.parseDouble(possiblePrice); //if the String cannot be cast to a double, return false
+		//If the String cannot be cast to a double, return false. Otherwise, continue.
+		try {	
+			testDouble = Double.parseDouble(possiblePrice); 
 		}
 		catch(Exception e) {
 			return false;
 		}
-		if(testDouble < 0) return false; //String can be cast to a double. therefore, we can check whether the price is valid.
+		//String can be cast to a double. Therefore, we can check whether the price is valid (a positive number, or 0).
+		if(testDouble < 0) return false; 
 		return true;
 	}
 
 	public static boolean isValidDate(String possibleDate) {
-		if(possibleDate.length() != 10) return false; //if string doesn't fit mm/dd/yyyy length, is invalid
-		else if(possibleDate.charAt(2) != '/' || possibleDate.charAt(5) != '/') return false; //if slashes aren't in correct place, is invalid
-		boolean isInts = true;
-		for(int index = 0; index < possibleDate.length(); index++) {
-			if(index != 2 && index != 5 && (possibleDate.charAt(index) < '0' || possibleDate.charAt(index) > '9')) //if any non-slash chars are not integers, is invalid
-				isInts = false;
+		//Require all dates to follow the mm/dd/yyyy format
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		//Set SimpleDateFormat to not allow unrealistic dates
+		dateFormat.setLenient(false);
+		//If the Date can be created with the SimpleDateFormat, then the date is valid. Return true.
+		try {
+			Date testDate = dateFormat.parse(possibleDate);
+			return true;
 		}
-		return isInts;
+		//If an error is thrown, it is invalid. Return false.
+		catch(ParseException e) {
+			return false;
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(isValidDate(""));
+		System.out.println(isValidDate("01/01/2001"));
+		System.out.println(isValidDate("1/10/2012"));
+		System.out.println(isValidDate("13/01/2000"));
+		System.out.println(isValidDate("12/32/2000"));
 	}
 }
