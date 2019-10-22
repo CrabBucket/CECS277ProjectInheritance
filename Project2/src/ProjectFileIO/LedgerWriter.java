@@ -48,25 +48,25 @@ public class LedgerWriter{
 	 * Validates then adds a new sale to the ledger
 	 * @param sale Sale to be added.
 	 */
-	public void addNewSale(String sale) {
+	public void addNewSale(String sale) throws InvalidSaleException{
 		//One liner to find the amount of occurrences of ';' in our sale
 		int count = sale.length() - sale.replace(";", "").length();
 		//Verify that the entered data represent an actual sale - no real need to check payer name.
 		if(count != 3) {
-			throw new IllegalArgumentException(); 
+			throw new InvalidSaleException("Invalid Sale:" + sale); 
 		}
 		//Split the sale into the correct amount of strings, we know we won't get an error with the array index because we insure we have 3 semicolons and thus 4 strings in the first if.
 		//If the service is an empty string, throw error because a file with a blank name cannot be created.
 		else if(sale.split(";")[1]=="") { 
-			throw new IllegalArgumentException();
+			throw new InvalidSaleException("Invalid Sale:" + sale);
 		}
 		//If the price is not a valid price, throw error.
 		else if(!isValidPrice(sale.split(";")[2])){ 
-			throw new IllegalArgumentException();
+			throw new InvalidSaleException("Invalid Sale:" + sale);
 		}
 		//If the date does not follow mm/dd/yyyy format, throw error.
 		else if(!isValidDate(sale.split(";")[3])){ 
-			throw new IllegalArgumentException();
+			throw new InvalidSaleException("Invalid Sale:" + sale);
 		}
 		//All tests have been passed, therefore sale is valid and is written into ledger.
 		else{
