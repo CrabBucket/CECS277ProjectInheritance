@@ -44,11 +44,21 @@ public class LedgerOrganizer {
 			String service = line.split(";")[1];
 			//If the service is already in the key we simply write to that services LedgerWriter
 			if(map.containsKey(service)) {
-				map.get(service).addNewSale(line);
+				try{
+					map.get(service).addNewSale(line);
+				}catch(InvalidSaleException e){
+					System.out.println("An invalid sale was somehow added to the master ledger");
+				}
 			}else {
 				//Else we add a new ledgerwriter to the map associated with the service the write teh sale to that ledger
 				map.put(service, new LedgerWriter(service+".txt"));
-				map.get(service).addNewSale(line);
+				try{
+					map.get(service).addNewSale(line);
+					e.printStackTrace();
+				}catch(InvalidSaleException e){
+					System.out.println("An invalid sale was somehow added to the master ledger");
+					e.printStackTrace();
+				}
 			}
 		}
 	}
