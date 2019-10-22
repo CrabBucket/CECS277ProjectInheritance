@@ -115,7 +115,7 @@ public class LedgerUI {
 						System.out.println("Sale processed correctly.");
 					}
 					//If invalid, let user know. Nothing happens.
-					catch(IllegalArgumentException e) {
+					catch(InvalidSaleException e) {
 						System.out.println("Sale processed incorrectly.");
 					}
 					break;

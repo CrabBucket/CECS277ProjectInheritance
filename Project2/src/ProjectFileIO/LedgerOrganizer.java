@@ -54,7 +54,6 @@ public class LedgerOrganizer {
 				map.put(service, new LedgerWriter(service+".txt"));
 				try{
 					map.get(service).addNewSale(line);
-					e.printStackTrace();
 				}catch(InvalidSaleException e){
 					System.out.println("An invalid sale was somehow added to the master ledger");
 					e.printStackTrace();
