@@ -80,7 +80,7 @@ public class LedgerUI {
 	 */
 	public String promptNewSale() {
 		//Create list of what to prompt user.
-		String[] currentPrompt = {"buyer's name", "service", "price", "date"};
+		String[] currentPrompt = {"buyer's name", "service", "price", "date (MM/DD/YYYY with leading zeroes)"};
 		//Prepare to record user input.
 		String sale = "";
 		int currentPromptStage = 0;
