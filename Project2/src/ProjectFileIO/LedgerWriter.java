@@ -2,13 +2,22 @@ package ProjectFileIO;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+/**
+ * Writers and Validates Sales to a ledger sales.txt
+ * @author Thomas McSwain
+ */
 public class LedgerWriter{
 	private PrintWriter write;
 	
+	
+	/** 
+	 * Initializes LedgerWriter to sales.txt
+	 */
 	public LedgerWriter() {
 		try {
 			this.write = new PrintWriter("sales.txt");
@@ -18,6 +27,13 @@ public class LedgerWriter{
 		}
 	}
 	
+	
+	/** 
+	 * /** 
+	 * Initializes LedgerWriter to dest
+	 *
+	 * @param dest Filename of the ledger
+	 */
 	public LedgerWriter(String dest) {
 		try {
 			this.write = new PrintWriter(dest);
@@ -27,6 +43,11 @@ public class LedgerWriter{
 		}
 	}
 	
+	
+	/** 
+	 * Validates then adds a new sale to the ledger
+	 * @param sale Sale to be added.
+	 */
 	public void addNewSale(String sale) {
 		//One liner to find the amount of occurrences of ';' in our sale
 		int count = sale.length() - sale.replace(";", "").length();
@@ -52,11 +73,19 @@ public class LedgerWriter{
 			write.println(sale);
 		}
 	}
-	
+	/**
+	 * Closes printwriter
+	 */
 	public void close() {
 		write.close();
 	}
 
+	
+	/** 
+	 * Returns true if possiblePrice can be parsed as a double
+	 * @param possiblePrice String to be parsed
+	 * @return boolean True if possiblePrice can be parsed as a double otherwise false.
+	 */
 	private boolean isValidPrice(String possiblePrice) {
 		double testDouble = -1;
 		//If the String cannot be cast to a double, return false. Otherwise, continue.
@@ -71,6 +100,12 @@ public class LedgerWriter{
 		return true;
 	}
 
+	
+	/** 
+	 * Checks if possibleDate is a valid date
+	 * @param possibleDate Date to be checked
+	 * @return boolean True if possibleDate is a valid date false otherwise.
+	 */
 	public static boolean isValidDate(String possibleDate) {
 		//Require all dates to follow the mm/dd/yyyy format
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -86,6 +121,7 @@ public class LedgerWriter{
 			return false;
 		}
 	}
+	
 	
 	public static void main(String[] args) {
 		System.out.println(isValidDate(""));
