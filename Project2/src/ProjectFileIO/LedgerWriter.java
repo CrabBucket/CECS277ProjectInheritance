@@ -47,6 +47,7 @@ public class LedgerWriter{
 	/** 
 	 * Validates then adds a new sale to the ledger
 	 * @param sale Sale to be added.
+	 * @throws InvalidSaleException if entered service, price, or dinner are invalid.
 	 */
 	public void addNewSale(String sale) throws InvalidSaleException{
 		//One liner to find the amount of occurrences of ';' in our sale
