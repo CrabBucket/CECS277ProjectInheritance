@@ -69,6 +69,7 @@ public class IceCreamTester {
 		//indecisive person chooses a flavor.
 		String[] flavors = {"vanilla", "chocolate", "mint", "strawberry"};
 		String chosenFlavor = flavors[(int)(Math.random() * 4)];
+		System.out.println("Chosen flavor: " + chosenFlavor);
 		
 		AdvancedIceCreamCone temp = new AdvancedIceCreamCone();
 		//with chosen flavor, read all saved cones for correct flavor.
