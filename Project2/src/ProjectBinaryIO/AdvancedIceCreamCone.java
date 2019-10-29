@@ -53,6 +53,10 @@ public class AdvancedIceCreamCone {
     public void addToppings(String top) {
 		  toppings.add(top);
 	}
+//this method allows you to add toppings from an ArrayList
+    public void addToppings(List<String> top) {
+		  toppings.addAll(top);
+	}
 
 //this method returns a String with a list of the toppings
 	public ArrayList<String> getToppings () {
@@ -72,7 +76,7 @@ public class AdvancedIceCreamCone {
 
 //this method overrides the inherited toString()
 	public String toString() {
-		return String.format("%d scoops of %s ice cream on a %s cone, with toppings: %s", numberOfScoops, flavor, typeOfCone, toppings.toString());
+		return String.format("%d scoop(s) of %s ice cream on a %s cone, with toppings: %s", numberOfScoops, flavor, typeOfCone, toppings.toString());
 	  }
 
 }
