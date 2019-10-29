@@ -39,23 +39,28 @@ public class AdvancedIceCreamCone {
 	}
 //this method allows you to add one scoop of ice cream at a time
 	public void addScoop() {
+		System.out.println(String.format("%s cone: added a scoop.", this.flavor));
 		numberOfScoops=numberOfScoops+1;
 	}
 //this method allows you to change the ice cream flavor
 	public void setFlavor(String flv) {
-			flavor=flv;
+		System.out.println(String.format("%s cone: set flavor to %s.", this.flavor, flv));
+		flavor=flv;
 	}
 //this method allows you to change the type of cone
 	public void setTypeOfCone(String cone) {
+		System.out.println(String.format("%s cone: set cone to %s.", this.flavor, cone));
 		typeOfCone=cone;
 	}
 //this method allows you to add  toppings
     public void addToppings(String top) {
-		  toppings.add(top);
+		System.out.println(String.format("%s cone: added a topping - %s.", this.flavor, top));
+		toppings.add(top);
 	}
 //this method allows you to add toppings from an ArrayList
     public void addToppings(List<String> top) {
-		  toppings.addAll(top);
+		System.out.println(String.format("%s cone: added multiple toppings - %s.", this.flavor, top));
+		toppings.addAll(top);
 	}
 
 //this method returns a String with a list of the toppings
