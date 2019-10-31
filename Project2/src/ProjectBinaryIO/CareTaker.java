@@ -1,5 +1,6 @@
 package ProjectBinaryIO;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -26,15 +27,20 @@ public class CareTaker {
 	/** The file dest. */
 	private String fileDest;
 	
+	/** Is the PrintWriter closed */
+	private boolean isClosed;
+	
 	/**
 	 * Instantiates a new care taker.
 	 */
 	public CareTaker() {
+		isClosed = false;
 		fileDest = "cones.dat";
 		File file = new File(fileDest);
 		try {
 			//create the file
 			file.createNewFile();
+			System.out.println("The file that stores the mementos is located at :"+file.getAbsolutePath());
 			//MUST create the output stream first, or else input stream hangs.
 			this.writer = new ObjectOutputStream(new FileOutputStream(fileDest));
 			this.reader = new ObjectInputStream(new FileInputStream(fileDest));
@@ -110,5 +116,39 @@ public class CareTaker {
 			System.out.println("CareTaker: IOException thrown while closing ObjectInputStream.");
 			e.printStackTrace();
 		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		try {
+			ObjectInputStream tempreader = new ObjectInputStream(new FileInputStream(fileDest));
+			if(isClosed) {
+				AdvancedIceCreamCone temp = new AdvancedIceCreamCone();
+				String toRet = "";
+				try {
+					while(true) {
+						//read cone from file
+						temp.restore((Memento)tempreader.readObject());
+						toRet+=temp.toString();
+					}
+				}catch(EOFException eof) {
+					tempreader.close();
+					return toRet;
+				}
+			}else {
+				tempreader.close();
+				return "The memento file cannot currently be read because it is open";
+			}
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			return "Error when trying to read from the memento file";
+			
+		}
+		
+		
+		
 	}
 }

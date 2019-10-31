@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * Memento saves the fields of AdvancedIceCreamCone and has mutators for stored fields.
  * Also implements Serializable for use with CareTaker to write into storage.
@@ -88,4 +89,12 @@ public class Memento implements Serializable{
 	public ArrayList<String> getToppings(){
 		return this.toppings;
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return String.format("This memento represents an AdvancedIceCreamCone with the following fields: \n"
+				+ "%d scoop(s) of %s ice cream on a %s cone, with toppings: %s", numberOfScoops, flavor, typeOfCone, toppings.toString());
+	  }
 }
