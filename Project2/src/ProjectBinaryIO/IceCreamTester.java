@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
+ * Tester that uses a single AdvancedIceCreamCone
+ * Saves the state of that Cone after we are done editing
+ * Can restore the state of the Cone at the end from file
+ * So we can read any of our cones.
  * 
- * @author Guy
+ * @author Alexander Dung
  *
  */
 public class IceCreamTester {

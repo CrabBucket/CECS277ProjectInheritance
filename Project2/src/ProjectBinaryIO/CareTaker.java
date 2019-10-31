@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
 /**
  * CareTaker creates a file in the working directory in which it can write and read Mementos to.
  * Has methods to write a Memento to storage, and to read the Memento back as a Memento.
@@ -15,10 +16,19 @@ import java.io.IOException;
  *
  */
 public class CareTaker {
+	
+	/** The reader. */
 	private ObjectInputStream reader;
+	
+	/** The writer. */
 	private ObjectOutputStream writer;
+	
+	/** The file dest. */
 	private String fileDest;
 	
+	/**
+	 * Instantiates a new care taker.
+	 */
 	public CareTaker() {
 		fileDest = "cones.dat";
 		File file = new File(fileDest);
@@ -39,6 +49,11 @@ public class CareTaker {
 		}
 	}
 	
+	/**
+	 * Saves a memento.
+	 *
+	 * @param toSave, the memento to save
+	 */
 	public void saveMemento(Memento toSave) {
 		try {
 			//save Memento to file
@@ -50,6 +65,11 @@ public class CareTaker {
 		}
 	}
 	
+	/**
+	 * Reads a memento from file.
+	 *
+	 * @return the memento
+	 */
 	public Memento readMemento() {
 		Memento prevState = new Memento(1, "vanila", "regular");
 		try{
@@ -66,6 +86,9 @@ public class CareTaker {
 		return prevState;
 	}
 	
+	/**
+	 * Close writer.
+	 */
 	public void closeWriter() {
 		try {
 			this.writer.close();
@@ -76,6 +99,9 @@ public class CareTaker {
 		}
 	}
 	
+	/**
+	 * Close reader.
+	 */
 	public void closeReader() {
 		try {
 			this.reader.close();
