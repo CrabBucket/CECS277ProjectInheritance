@@ -14,57 +14,59 @@ public class IceCreamTester {
 		String[] rndToppings = {"chocolate chips", "caramel", "chocolate syrup", "almonds", "peanuts", "sprinkles", "gummy bears", "graham cracker crumbs", "oreo crumbs", "strawberry syrup"};
 		String[] coneTypes = {"regular", "sugar", "waffle"};
 		//instantiate a cone of each flavor, each set to default besides flavor
-		AdvancedIceCreamCone vnlaCone = new AdvancedIceCreamCone();
-		AdvancedIceCreamCone chocCone = new AdvancedIceCreamCone(1, "chocolate", "regular");
-		AdvancedIceCreamCone mintCone = new AdvancedIceCreamCone(1, "mint", "regular");
+		AdvancedIceCreamCone Cone = new AdvancedIceCreamCone();
+		//AdvancedIceCreamCone chocCone = new AdvancedIceCreamCone(1, "chocolate", "regular");
+		//AdvancedIceCreamCone mintCone = new AdvancedIceCreamCone(1, "mint", "regular");
 		//make sure setFlavor works
-		AdvancedIceCreamCone stbrCone = new AdvancedIceCreamCone();
-		stbrCone.setFlavor("strawberry");
+		//AdvancedIceCreamCone strCone = new AdvancedIceCreamCone();
+		//stbrCone.setFlavor("strawberry");
 		
 		//Begin messing with vanilla cone
 		
-		vnlaCone.addScoop();
+		Cone.addScoop();
 		ArrayList<String> toppingsToAdd = new ArrayList<String>();
 		for(int index = 0; index < rndToppings.length; index++) {
 			if(index % 2 == 0)toppingsToAdd.add(rndToppings[index]);
 		}
 		//add random toppings to vanilla cone
-		vnlaCone.addToppings(toppingsToAdd);
+		Cone.addToppings(toppingsToAdd);
 		//set vanilla cone's cone type randomly
-		vnlaCone.setTypeOfCone(coneTypes[(int)(Math.random() * 3)]);
+		Cone.setTypeOfCone(coneTypes[(int)(Math.random() * 3)]);
 		//vanilla cone is finalized, so save a Memento to file with CareTaker.
-		saver.saveMemento(vnlaCone.createMemento());
-		
+		saver.saveMemento(Cone.createMemento());
+		Cone = new AdvancedIceCreamCone(1, "chocolate", "regular");
 		//Begin messing with chocolate cone
 		
 		//3 times, add a scoop and a random topping to chocolate cone.
 		for(int count = 0; count < 3; count++) {
-			chocCone.addScoop();
-			chocCone.addToppings(rndToppings[(int)(Math.random() * rndToppings.length)]);
+			Cone.addScoop();
+			Cone.addToppings(rndToppings[(int)(Math.random() * rndToppings.length)]);
 		}
 		//chocolate cone is finalized, so save a Memento to file with CareTaker.
-		saver.saveMemento(chocCone.createMemento());
+		saver.saveMemento(Cone.createMemento());
 		
 		//Begin messing with mint cone
-		
+		Cone = new AdvancedIceCreamCone(1, "mint", "regular");
 		//5 times, add a scoop and a topping to mint cone
 		for(int index = 0; index < 5; index++) {
-			mintCone.addScoop();
-			mintCone.addToppings(rndToppings[index]);
+			Cone.addScoop();
+			Cone.addToppings(rndToppings[index]);
 		}
 		//set cone to waffle
-		mintCone.setTypeOfCone(coneTypes[2]);
+		Cone.setTypeOfCone(coneTypes[2]);
 		//mint cone is finalized, so save a Memento to file with CareTaker.
-		saver.saveMemento(mintCone.createMemento());
+		saver.saveMemento(Cone.createMemento());
 		
 		//Begin messing with strawberry cone
+		Cone = new AdvancedIceCreamCone();
+		Cone.setFlavor("strawberry");
 		
 		toppingsToAdd.clear();
 		toppingsToAdd.addAll(Arrays.asList(rndToppings));
-		stbrCone.addToppings(toppingsToAdd);
-		stbrCone.setTypeOfCone(coneTypes[1]);
+		Cone.addToppings(toppingsToAdd);
+		Cone.setTypeOfCone(coneTypes[1]);
 		//Strawberry cone is finalized, so save a Memento to file with CareTaker.
-		saver.saveMemento(stbrCone.createMemento());
+		saver.saveMemento(Cone.createMemento());
 
 		//indecisive person chooses a flavor.
 		String[] flavors = {"vanilla", "chocolate", "mint", "strawberry"};
