@@ -91,5 +91,7 @@ public class IceCreamTester {
 		//calculate price - $3.50 base price, $0.35 per topping, $0.20 per extra scoop
 		double price = (temp.getToppings().size() * 0.35) + (0.2 * (temp.getNumberOfScoops() - 1)) + 3.50;
 		System.out.println(String.format("Price of cone: $%.2f", price));
+		saver.closeWriter();
+		System.out.println(saver.toString());
 	}
 }

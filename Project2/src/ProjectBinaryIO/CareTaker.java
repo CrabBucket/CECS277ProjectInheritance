@@ -98,6 +98,7 @@ public class CareTaker {
 	public void closeWriter() {
 		try {
 			this.writer.close();
+			isClosed = true;
 		}
 		catch(IOException e) {
 			System.out.println("CareTaker: IOException thrown while closing ObjectOutputStream.");
@@ -122,25 +123,30 @@ public class CareTaker {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
+		//We try to make a new reader shouldn't ever really throw an error.
 		try {
 			ObjectInputStream tempreader = new ObjectInputStream(new FileInputStream(fileDest));
+			//We check to make sure the writer is closed before reading from it.
 			if(isClosed) {
 				AdvancedIceCreamCone temp = new AdvancedIceCreamCone();
-				String toRet = "";
+				String toRet = "All of the stored mementos:\n";
+				//We use this try block to catch when we get to the end of the file and when we do catch it we close our temp reader and return everything.
 				try {
 					while(true) {
 						//read cone from file
 						temp.restore((Memento)tempreader.readObject());
-						toRet+=temp.toString();
+						toRet+=(temp.toString()+"\n");
 					}
 				}catch(EOFException eof) {
 					tempreader.close();
-					return toRet;
+					return toRet+"End of memento file contents.";
 				}
+			//If the reader is open we can't do anything and we just return that we can't do anything.
 			}else {
 				tempreader.close();
 				return "The memento file cannot currently be read because it is open";
 			}
+			//If we have some problem reading from the memento file we print the stack trace and return the error.  We use a soft error here because
 		}catch(Exception e) {
 			
 			e.printStackTrace();
