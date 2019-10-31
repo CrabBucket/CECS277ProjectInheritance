@@ -56,9 +56,9 @@ public class CareTaker {
 	}
 	
 	/**
-	 * Saves a memento.
+	 * Saves a Memento to file.
 	 *
-	 * @param toSave the memento to save
+	 * @param toSave the Memento to save
 	 */
 	public void saveMemento(Memento toSave) {
 		try {
@@ -72,9 +72,9 @@ public class CareTaker {
 	}
 	
 	/**
-	 * Reads a memento from file.
+	 * Reads a Memento from file.
 	 *
-	 * @return the memento
+	 * @return the Memento read from file
 	 */
 	public Memento readMemento() {
 		Memento prevState = new Memento(1, "vanila", "regular");
@@ -93,7 +93,7 @@ public class CareTaker {
 	}
 	
 	/**
-	 * Close writer.
+	 * Closes the ObjectOutputStream.
 	 */
 	public void closeWriter() {
 		try {
@@ -107,7 +107,7 @@ public class CareTaker {
 	}
 	
 	/**
-	 * Close reader.
+	 * Closes the ObjectInputStream.
 	 */
 	public void closeReader() {
 		try {

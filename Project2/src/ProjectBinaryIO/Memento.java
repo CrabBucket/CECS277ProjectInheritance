@@ -28,9 +28,9 @@ public class Memento implements Serializable{
 	/**
 	 * Instantiates a new memento with empty topppings.
 	 *
-	 * @param ns the ns
-	 * @param flv the flv
-	 * @param cone the cone
+	 * @param ns the number of scoops
+	 * @param flv the flavor of ice cream
+	 * @param cone the type of cone
 	 */
 	public Memento(int ns, String flv, String cone) {
 		this.numberOfScoops = ns;
@@ -42,10 +42,10 @@ public class Memento implements Serializable{
 	/**
 	 * Instantiates a new memento with given toppings.
 	 *
-	 * @param ns the ns
-	 * @param flv the flv
-	 * @param cone the cone
-	 * @param tp the tp
+	 * @param ns the number of scoops
+	 * @param flv the flavor of ice cream
+	 * @param cone the type of cone
+	 * @param tp the topping(s)
 	 */
 	public Memento(int ns, String flv, String cone, ArrayList<String> tp) {
 		this.numberOfScoops = ns;
@@ -55,27 +55,27 @@ public class Memento implements Serializable{
 	}
 	
 	/**
-	 * Gets the scoops.
+	 * Gets the number of scoops.
 	 *
-	 * @return the scoops
+	 * @return the number of scoops
 	 */
 	public int getScoops() {
 		return this.numberOfScoops;
 	}
 	
 	/**
-	 * Gets the flavor.
+	 * Gets the flavor of ice cream.
 	 *
-	 * @return the flavor
+	 * @return the flavor of ice cream
 	 */
 	public String getFlavor() {
 		return this.flavor;
 	}
 	
 	/**
-	 * Gets the cone.
+	 * Gets the type of cone.
 	 *
-	 * @return the cone
+	 * @return the type of cone
 	 */
 	public String getCone() {
 		return this.typeOfCone;

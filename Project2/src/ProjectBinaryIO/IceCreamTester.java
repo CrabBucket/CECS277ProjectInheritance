@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Can restore the state of the Cone at the end from file
  * So we can read any of our cones.
  * 
- * @author Alexander Dung
+ * @author Thomas McSwain
  *
  */
 public class IceCreamTester {
