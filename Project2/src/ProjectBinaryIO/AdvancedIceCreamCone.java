@@ -93,7 +93,7 @@ public class AdvancedIceCreamCone {
 /**
  * Sets the flavor.
  *
- * @param flv, the new flavor
+ * @param flv the new flavor
  */
 //this method allows you to change the ice cream flavor
 	public void setFlavor(String flv) {
@@ -104,7 +104,7 @@ public class AdvancedIceCreamCone {
 /**
  * Sets the type of cone.
  *
- * @param cone, the new type of cone
+ * @param cone the new type of cone
  */
 //this method allows you to change the type of cone
 	public void setTypeOfCone(String cone) {
@@ -115,7 +115,7 @@ public class AdvancedIceCreamCone {
 /**
  * Adds the toppings.
  *
- * @param top, the topping you want to add
+ * @param top the topping you want to add
  */
 //this method allows you to add  toppings
     public void addToppings(String top) {

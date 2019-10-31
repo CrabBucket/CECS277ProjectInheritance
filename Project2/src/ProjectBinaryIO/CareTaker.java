@@ -52,7 +52,7 @@ public class CareTaker {
 	/**
 	 * Saves a memento.
 	 *
-	 * @param toSave, the memento to save
+	 * @param toSave the memento to save
 	 */
 	public void saveMemento(Memento toSave) {
 		try {
