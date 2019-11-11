@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Random;
 
 public class ScavengerHunt {
 	
@@ -48,7 +49,7 @@ public class ScavengerHunt {
 				reader.close();
 				ListIterator<String> iter = list.listIterator();
 				ArrayList<Long> actualTimes = new ArrayList<Long>();
-				for(int i = 0;i<100;++i) {
+				for(int i = 0;i<1000000;++i) {
 					long startTraverse = System.nanoTime();
 					while(iter.hasNext()) {
 						iter.next();
@@ -76,33 +77,39 @@ public class ScavengerHunt {
 							throw new NumberFormatException();
 						}
 						ArrayList<Long> actualTeams = new ArrayList<Long>();
-						int testOver = 100;
+						int testOver = 10000;
 						for(int j = 0; j<testOver;++j) {
 							long totalTeams = 0;
 							if(isLinkedList) {
 								for(int i = 0;i < teams; ++i) {
+									teamlist = new LinkedList<List<String>>();
 									long startTeams = System.nanoTime();
-									teamlist.add(new LinkedList());
+									LinkedList<String> templist = new LinkedList<String>();
+									
 									while(iter.hasNext()) {
-										teamlist.get(i).add(iter.next());
+										templist.add(iter.next());
 									}
 									while(iter.hasPrevious()) {
 										iter.previous();
 									}
+									teamlist.add(templist);
 									totalTeams += System.nanoTime() - startTeams;
 									Collections.shuffle(list);																
 								}
 								actualTeams.add(totalTeams);
 							}else {
 								for(int i = 0;i < teams; ++i) {
+									teamlist = new ArrayList<List<String>>();
 									long startTeams = System.nanoTime();
-									teamlist.add(new ArrayList());
+									ArrayList<String> templist = new ArrayList<String>();
+									
 									while(iter.hasNext()) {
-										teamlist.get(i).add(iter.next());
+										templist.add(iter.next());
 									}
 									while(iter.hasPrevious()) {
 										iter.previous();
 									}
+									teamlist.add(templist);
 									totalTeams += System.nanoTime() - startTeams;
 									Collections.shuffle(list);
 								}
@@ -116,12 +123,74 @@ public class ScavengerHunt {
 							}
 						}
 						System.out.println(smallest/teams + "Number of nanoseconds per team");
+						
+						System.out.println(teamlist);
+						
+						System.out.println("Please enter the index you wish to insert/remove from");
+						
+						int userindex = Integer.parseInt(userinput.readLine());
+						
+						ArrayList<Long> getTimes = new ArrayList<Long>();
+						
+						
+						for(int i = 0;i<100000;++i) {
+							Long start = System.nanoTime();
+							for(List<String> team:teamlist) {
+								team.get(userindex);
+								
+							}
+							getTimes.add(System.nanoTime()-start);
+						}
+						long smallestgetTime = Long.MAX_VALUE;
+						for(Long num:getTimes) {
+							if(num<smallestgetTime) {
+								smallestgetTime = num;
+							}
+						}
+						
+						ArrayList<Long> addTimes = new ArrayList<Long>();
+						
+						
+						for(int i = 0;i<100000;++i) {
+							Long start = System.nanoTime();
+							for(List<String> team:teamlist) {
+								team.add(userindex,"testadd");
+								
+							}
+							addTimes.add(System.nanoTime()-start);
+							
+						}
+						long smallestaddTime = Long.MAX_VALUE;
+						for(Long num:addTimes) {
+							if(num<smallestaddTime) {
+								smallestaddTime = num;
+							}
+						}
+						System.out.println(smallestgetTime);
+						System.out.println(smallestaddTime);
+						Random rand = new Random(System.nanoTime());
+						
+						long randStart = System.nanoTime();
+						long totalListTime = 0;
+						for(int i = 0;i<100000;i++) {
+							int randindex = rand.nextInt(100);
+							randStart = System.nanoTime();
+							list.get(randindex);
+							totalListTime += System.nanoTime() - randStart;
+							
+						}
+						long aveRandTime = totalListTime/100000;
+						System.out.println(aveRandTime);
+						
+						
 					}catch(NumberFormatException e){
 						System.out.println("Please enter a valid integer");
 						continue;
+					}catch(IndexOutOfBoundsException e) {
+						System.out.println("Please enter an index between 0-99");
 					}
+					
 				}
-				
 				
 			}catch(IOException e) {
 				e.printStackTrace();
