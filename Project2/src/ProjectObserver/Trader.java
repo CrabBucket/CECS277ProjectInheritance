@@ -3,40 +3,48 @@ package ProjectObserver;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Represents a stock trader that can follow certain stocks.
+ * Implements Java standard library's Observer class for use with the Stock class.
+ * @author Alexander Dung
+ *
+ */
 public class Trader implements Observer{
 	private String name;
-	private double buyThreshold, sellThreshold;
 	
 	
+	/**
+	 * Default constructor, sets all values to reflect a "default" trader.
+	 */
 	public Trader() {
 		this.name = "Unknown Trader";
-		this.buyThreshold = 100;
-		this.sellThreshold = 110;
 	}
 	
-	public Trader(String traderName, double buy, double sell) {
+	/**
+	 * Sets Trader name, to the argument.
+	 * @param traderName name to give this Trader
+	 */
+	public Trader(String traderName) {
 		this.name = traderName;
-		this.buyThreshold = buy;
-		this.sellThreshold = sell;
 	}
 	
+	/**
+	 * Gets this Trader's name and returns it as a String.
+	 * @return String this Trader's name
+	 */
 	public String getName() {
 		return this.name;
 	}
 	
+	/**
+	 * Sets this Trader's name to the argument String.
+	 * @param newName the new name to give this Trader
+	 */
 	public void setName(String newName) {
 		this.name = newName;
 	}
 	
-	public boolean wantsToBuy(double value) {
-		return value < this.buyThreshold;
-	}
-	
-	public boolean wantsToSell(double value) {
-		return value > this.sellThreshold;
-	}
-	
 	public void update(Observable stock, Object arg) {
-		System.out.println(String.format("%s has received a notification: %n    %s", this.name, (Trade) arg));
+		System.out.printf("%n%s has received a notification: %n    %s", this.name, (Trade) arg);
 	}
 }
